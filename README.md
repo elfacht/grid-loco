@@ -1,5 +1,7 @@
 # Grid Loco
 
-The last grid you'll need.
+This grid's crazy.
 
-Documentation coming soon.
+Heavily work in progress, no shame.
+Release early, deploy often.
+You need to chill.

@@ -45,6 +45,7 @@ $grid-gap: (
 
     align-items: var(--grid-align, start);
     display: grid;
+    gap: var(--grid-gap);
     grid-template-rows: repeat(var(--grid-rows, 1), var(--grid-height));
     grid-template-columns:  [start]
                                 minmax(var(--grid-gap, 0), 1fr)
@@ -54,7 +55,6 @@ $grid-gap: (
                             [grid-end]
                                 minmax(var(--grid-gap, 0), 1fr)
                             [end];
-    gap: var(--grid-gap);
 
     @media (min-width: #{map-get($grid-breakpoints, 'medium')}) {
         --grid-gap: var(--grid-gap-medium, var(--grid-gap-small, var(--grid-gap-default)));
@@ -80,8 +80,8 @@ $grid-gap: (
     --grid-row-end: var(--grid-row-end-small, var(--grid-row-end-default));
 
     align-self: var(--grid-align-self, stretch);
-    grid-row: var(--grid-row-start)/var(--grid-row-end);
     grid-column: var(--grid-col-start)/var(--grid-col-end);
+    grid-row: var(--grid-row-start)/var(--grid-row-end);
     position: relative;
     z-index: var(--grid-col-zindex);
 
