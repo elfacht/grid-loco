@@ -16,7 +16,18 @@
 // @var {Number} --grid-col-end-[<small>|<medium>|<large>|<xlarge>]
 // @var {Number} --grid-col-zindex
 
+// Set default grid max-width
 $grid-max-width: 1240px !default;
+
+// Set grid breakpoints
+$grid-breakpoints: (
+    small: 0,
+    medium: 572px,
+    large: 768px,
+    xlarge: 992px
+) !default;
+
+// Set Grid gap widths
 $grid-gap: (
     small: 16px,
     medium: 24px,
@@ -25,10 +36,10 @@ $grid-gap: (
 ) !default;
 
 .grid {
-    --grid-gap-default: #{rem-calc(map-get($grid-gap, 'small'))};
-    --grid-gap-medium: #{rem-calc(map-get($grid-gap, 'medium'))};
-    --grid-gap-large: #{rem-calc(map-get($grid-gap, 'large'))};
-    --grid-gap-xlarge: #{rem-calc(map-get($grid-gap, 'xlarge'))};
+    --grid-gap-default: #{map-get($grid-gap, 'small')};
+    --grid-gap-medium: #{map-get($grid-gap, 'medium')};
+    --grid-gap-large: #{map-get($grid-gap, 'large')};
+    --grid-gap-xlarge: #{map-get($grid-gap, 'xlarge')};
     --grid-gap: var(--grid-gap-small, var(--grid-gap-default));
     --grid-col-width: calc(calc(var(--grid-max, #{rem-calc($grid-max-width)}) - calc(var(--grid-cols, 12) * var(--grid-gap, var(--grid-gap-default)))) / var(--grid-cols, 12));
 
@@ -45,15 +56,15 @@ $grid-gap: (
                             [end];
     gap: var(--grid-gap);
 
-    @include breakpoint(medium) {
+    @media (min-width: #{map-get($grid-breakpoints, 'medium')}) {
         --grid-gap: var(--grid-gap-medium, var(--grid-gap-small, var(--grid-gap-default)));
     }
 
-    @include breakpoint(large) {
+    @media (min-width: #{map-get($grid-breakpoints, 'large')}) {
         --grid-gap: var(--grid-gap-large, var(--grid-gap-medium, var(--grid-gap-small, var(--grid-gap-default))));
     }
 
-    @include breakpoint(xlarge) {
+    @media (min-width: #{map-get($grid-breakpoints, 'xlarge')}) {
         --grid-gap: var(--grid-gap-xlarge, var(--grid-gap-large, var(--grid-gap-medium, var(--grid-gap-small, var(--grid-gap-default)))));
     }
 }
@@ -74,21 +85,21 @@ $grid-gap: (
     position: relative;
     z-index: var(--grid-col-zindex);
 
-    @include breakpoint(medium) {
+    @media (min-width: #{map-get($grid-breakpoints, 'medium')}) {
         --grid-col-start: var(--grid-col-start-medium, var(--grid-col-start-small, var(--grid-col-start-default)));
         --grid-col-end: var(--grid-col-end-medium, var(--grid-col-end-small, var(--grid-col-end-default)));
         --grid-row-start: var(--grid-row-start-medium, var(--grid-row-start-small, var(--grid-row-start-default)));
         --grid-row-end: var(--grid-row-end-medium, var(--grid-row-end-small, var(--grid-row-end-default)));
     }
 
-    @include breakpoint(large) {
+    @media (min-width: #{map-get($grid-breakpoints, 'large')}) {
         --grid-col-start: var(--grid-col-start-large, var(--grid-col-start-medium, var(--grid-col-start-small, var(--grid-col-start-default))));
         --grid-col-end: var(--grid-col-end-large, var(--grid-col-end-medium, var(--grid-col-end-small, var(--grid-col-end-default))));
         --grid-row-start: var(--grid-row-start-large, var(--grid-row-start-medium, var(--grid-row-start-small, var(--grid-row-start-default))));
         --grid-row-end: var(--grid-row-end-large, var(--grid-row-end-medium, var(--grid-row-end-small, var(--grid-row-end-default))));
     }
 
-    @include breakpoint(xlarge) {
+    @media (min-width: #{map-get($grid-breakpoints, 'xlarge')}) {
         --grid-col-start: var(--grid-col-start-xlarge, var(--grid-col-start-large, var(--grid-col-start-medium, var(--grid-col-start-small, var(--grid-col-start-default)))));
         --grid-col-end: var(--grid-col-end-xlarge, var(--grid-col-end-large, var(--grid-col-end-medium, var(--grid-col-end-small, var(--grid-col-end-default)))));
         --grid-row-start: var(--grid-row-start-xlarge, var(--grid-row-start-large, var(--grid-row-start-medium, var(--grid-row-start-small, var(--grid-row-start-default)))));
