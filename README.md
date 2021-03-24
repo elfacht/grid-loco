@@ -1,5 +1,10 @@
 # Grid Loco
 
+<p style="text-align: center">
+    <a href="https://github.com/elfacht/grid-loco/blob/master/LICENSE.md">
+        <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
+    </a>
+</p>
 A super flexible CSS grid using CSS grid and custom properties.
 Create your grid in your modules or on the fly in the DOM without
 stiff classes or mixins. Do what you want, but don't forget the omen!
