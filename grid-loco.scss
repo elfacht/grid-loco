@@ -1,21 +1,33 @@
-// Grid
-//
-// @var {String} --grid-max (Grid max width in px)
-// @var {String} --grid-gap-[<small>|<medium>|<large>|<xlarge>] (Gap between the columns in px)
-// @var {Number} --grid-rows (Amount of grid rows)
-// @var {Number} --grid-cols (Amount of grid cols)
-// @var {String} --grid-align [<stretch>|<center>|<start>|<end>] (Align of all items inside grid)
-// @var {String} --grid-height (Custom grid height)
-// @var {Number} --grid-row-start
-// @var {Number} --grid-row-start-[<small>|<medium>|<large>|<xlarge>]
-// @var {Number} --grid-row-end
-// @var {Number} --grid-row-end-[<small>|<medium>|<large>|<xlarge>]
-// @var {Number} --grid-col-start
-// @var {Number} --grid-col-start-[<small>|<medium>|<large>|<xlarge>]
-// @var {Number} --grid-col-end
-// @var {Number} --grid-col-end-[<small>|<medium>|<large>|<xlarge>]
-// @var {Number} --grid-col-zindex
+/**
+ * Grid Loco
+ *
+ * A super flexible CSS grid using CSS grid and custom properties.
+ * Create your grid in your modules or on the fly in the DOM without
+ * stiff classes or mixins. Do what you want, but don't forget the omen!
+ *
+ * @author Martin Szymanski
+ * @link https://github.com/elfacht/grid-loco/
+ * @version tbd.
+ * @license tbd. but something MIT, I guess.
+ *
+ * @var {String} --grid-max (Grid max width in px)
+ * @var {String} --grid-gap-[<small>|<medium>|<large>|<xlarge>] (Gap between the columns in px)
+ * @var {Number} --grid-rows (Amount of grid rows)
+ * @var {Number} --grid-cols (Amount of grid cols)
+ * @var {String} --grid-align [<stretch>|<center>|<start>|<end>] (Align of all items inside grid)
+ * @var {String} --grid-height (Custom grid height)
+ * @var {Number} --grid-row-start
+ * @var {Number} --grid-row-start-[<small>|<medium>|<large>|<xlarge>]
+ * @var {Number} --grid-row-end
+ * @var {Number} --grid-row-end-[<small>|<medium>|<large>|<xlarge>]
+ * @var {Number} --grid-col-start
+ * @var {Number} --grid-col-start-[<small>|<medium>|<large>|<xlarge>]
+ * @var {Number} --grid-col-end
+ * @var {Number} --grid-col-end-[<small>|<medium>|<large>|<xlarge>]
+ * @var {Number} --grid-col-zindex
+ */
 
+// ––– Grid defaults –––
 // Set default grid max-width
 $grid-max-width: 1240px !default;
 
@@ -35,12 +47,19 @@ $grid-gap: (
     xlarge: 40px
 ) !default;
 
+// ––– Grid container –––
 .grid {
+    // Grid gap sizes per breakpoint
     --grid-gap-default: #{map-get($grid-gap, 'small')};
     --grid-gap-medium: #{map-get($grid-gap, 'medium')};
     --grid-gap-large: #{map-get($grid-gap, 'large')};
     --grid-gap-xlarge: #{map-get($grid-gap, 'xlarge')};
+
+    // Grid gap default variable
     --grid-gap: var(--grid-gap-small, var(--grid-gap-default));
+
+    // Calculate column width by grid max. width,
+    // column amount and grid gap
     --grid-col-width: calc(calc(var(--grid-max, #{rem-calc($grid-max-width)}) - calc(var(--grid-cols, 12) * var(--grid-gap, var(--grid-gap-default)))) / var(--grid-cols, 12));
 
     align-items: var(--grid-align, start);
@@ -69,11 +88,15 @@ $grid-gap: (
     }
 }
 
+// ––– Grid column –––
 .grid__col {
+    // Element column positions
     --grid-col-start-default: grid-start;
     --grid-col-end-default: grid-end;
     --grid-col-start: var(--grid-col-start-small, var(--grid-col-start-default));
     --grid-col-end: var(--grid-col-end-small, var(--grid-col-end-default));
+
+    // Element row positions
     --grid-row-start-default: 1;
     --grid-row-end-default: auto;
     --grid-row-start: var(--grid-row-start-small, var(--grid-row-start-default));
