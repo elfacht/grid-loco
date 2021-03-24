@@ -9,3 +9,12 @@ This grid's crazy.
 Heavily work in progress, no shame.
 Release early, deploy often.
 You need to chill.
+
+
+## Roadmap
+
+* Tell the people how to use this.
+* Compiled CSS file for the purists.
+* Fine, I'll do a demo.
+* Add Soundcloud link.
+* 👀
