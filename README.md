@@ -1,6 +1,6 @@
 # Grid Loco
 
-<p align="center">
+<p>
     <a href="https://github.com/elfacht/grid-loco/blob/master/LICENSE.md">
         <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
     </a>
