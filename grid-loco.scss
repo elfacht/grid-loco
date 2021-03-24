@@ -88,8 +88,8 @@ $grid-gap: (
     }
 }
 
-// ––– Grid column –––
-.grid__col {
+// ––– Grid element –––
+.grid__el {
     // Element column positions
     --grid-col-start-default: grid-start;
     --grid-col-end-default: grid-end;
